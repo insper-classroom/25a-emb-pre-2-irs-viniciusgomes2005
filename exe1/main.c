@@ -37,6 +37,7 @@ int main() {
   while (true) {
     if(flag){
       update();
+      flag = 0;
     }
   }
 }
