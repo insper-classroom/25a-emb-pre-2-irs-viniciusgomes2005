@@ -23,7 +23,7 @@ void btn_callback(uint gpio, uint32_t events) {
 
 void update(){
   if (FLAG_GREEN){
-    printf("fall green\n");
+    printf("high green\n");
     if(gpio_get(LED_G)){
       gpio_put(LED_G,0);
     }else{
@@ -61,7 +61,7 @@ int main() {
                                      &btn_callback);
 
   // callback led g (nao usar _with_callback)
-  gpio_set_irq_enabled(BTN_PIN_G, GPIO_IRQ_EDGE_FALL, true);
+  gpio_set_irq_enabled(BTN_PIN_G, GPIO_IRQ_EDGE_RISE, true);
 
   while (true) {
     update();
