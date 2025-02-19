@@ -1,8 +1,6 @@
 #include "hardware/gpio.h"
 #include "pico/stdlib.h"
 #include <stdio.h>
-const int BTN_PIN_R = 28;
-const int LED = 4;
 volatile int flag;
 volatile int on;
 void btn_callback(uint gpio, uint32_t events) {
@@ -28,6 +26,8 @@ void update(){
   }
 }
 int main() {
+  const int BTN_PIN_R = 28;
+  const int LED = 4;
   stdio_init_all();
 
 
