@@ -13,7 +13,9 @@ void btn_callback(uint gpio, uint32_t events) {
     if (gpio == BTN_PIN_R){
       FLAG_RED = 1;
     }
-    else if (gpio == BTN_PIN_G){
+    
+  }if(events == 0x8){
+    if (gpio == BTN_PIN_G){
       FLAG_GREEN = 1;
     }
   }
