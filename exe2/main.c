@@ -4,7 +4,6 @@
 const int BTN_PIN_R = 28;
 const int LED = 4;
 volatile int flag;
-volatile int on;
 void btn_callback(uint gpio, uint32_t events) {
   if (events == 0x4) { // fall edge
     flag = 1;
@@ -13,14 +12,12 @@ void btn_callback(uint gpio, uint32_t events) {
 void update(){
   if(flag ==1){
     printf("PRESSED");
-    if(on == 1){
+    if(gpio_get(LED)  ){
       printf("TURNING OFF");
-      on = 0;
       gpio_put(LED, 0);
     }
     else{
       printf("TURNING ON");
-      on = 1;
       gpio_put(LED,1);
     }
 
